@@ -1,6 +1,20 @@
 package com.humberto.bootstore.domain;
 
-public class Livro {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Livro implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer id;
 	private String titulo;
 	private String nome_autor;
@@ -10,7 +24,6 @@ public class Livro {
 
 	public Livro() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
@@ -22,16 +35,6 @@ public class Livro {
 		this.categoria = categoria;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	
-	
 	public Integer getId() {
 		return id;
 	}
@@ -73,6 +76,14 @@ public class Livro {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -88,7 +99,6 @@ public class Livro {
 			return false;
 		return true;
 	}
-	
 	
 	
 }
